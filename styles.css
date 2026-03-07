@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'linja pona';
+  src: url(./assets/linja-pona-4.9.otf) format('opentype');
+  size-adjust: 130%;
+}
+
+body {
+  --og-font-text: var(--font-text);
+}
+
+.markdown-preview-view.sitelen-pona,
+.markdown-source-view.is-live-preview.sitelen-pona {
+  --font-text: "linja pona";
+  font-feature-settings: "liga" 1;
+  text-rendering: optimizeLegibility;
+
+  .no-sitelen-pona-indicator {
+    color: red;
+  }
+
+  .cm-contentContainer:not(:focus-within) .no-sitelen-pona-indicator,
+  .cm-line:not(.cm-active) .no-sitelen-pona-indicator {
+    display: none;
+  }
+
+  .no-sitelen-pona,
+  .inline-title:focus-within,
+  .cm-contentContainer:focus-within .cm-active:not(.HyperMD-codeblock) {
+    font-family: var(--og-font-text);
+    font-feature-settings: normal;
+    text-rendering: initial;
+  }
+}
