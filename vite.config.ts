@@ -1,5 +1,6 @@
 import { builtinModules } from 'node:module';
 import { defineConfig, loadEnv } from 'vite'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 const banner =
 `/*
@@ -14,6 +15,20 @@ export default defineConfig(({ mode }) => {
     const prod = mode === 'production';
 
     return {
+        plugins: [
+          viteStaticCopy({
+            targets: [
+                {
+                    src: 'manifest.json',
+                    dest: ''
+                },
+                {
+                    src: 'versions.json',
+                    dest: ''
+                }
+            ]
+          })
+        ],
         build: {
             outDir: env.OUTPUT_DIR ?? 'dist',
             emptyOutDir: false,
