@@ -20,7 +20,7 @@ export default class SitelenPona extends Plugin {
     //     );
     // }
 
-    async onload() {
+    onload() {
         // await this.loadSettings()
 
         this.registerEditorExtension(editorExtension)
