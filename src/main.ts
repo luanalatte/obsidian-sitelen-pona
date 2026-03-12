@@ -3,16 +3,16 @@ import '../styles.css';
 import { FileView, Plugin } from "obsidian";
 import { editorExtension } from './editor';
 
-interface SitelenPonaSettings {
+// interface SitelenPonaSettings {
     
-}
+// }
 
-const DEFAULT_SETTINGS: SitelenPonaSettings = {
+// const DEFAULT_SETTINGS: SitelenPonaSettings = {
 
-}
+// }
 
 export default class SitelenPona extends Plugin {
-    settings: SitelenPonaSettings
+    // settings: SitelenPonaSettings
 
     // async setFontScale(scale: number) {
     //     document.documentElement.style.setProperty(
@@ -21,7 +21,7 @@ export default class SitelenPona extends Plugin {
     // }
 
     async onload() {
-        await this.loadSettings()
+        // await this.loadSettings()
 
         this.registerEditorExtension(editorExtension)
 
@@ -60,7 +60,7 @@ export default class SitelenPona extends Plugin {
         )
 
         this.addCommand({
-            id: 'toggle-sitelen-pona',
+            id: 'toggle-font',
 			name: 'Toggle',
 			editorCallback(editor, ctx) {
                 if (!ctx.file) return;
@@ -81,16 +81,18 @@ export default class SitelenPona extends Plugin {
                         classes.push('sitelen-pona')
                         fm.cssclasses = classes
                     }
+                }).catch(err => {
+                    console.error(err)
                 })
             },
         })
     }
 
-    async loadSettings() {
-		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData())
-	}
+    // async loadSettings() {
+	// 	this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData())
+	// }
 
-	async saveSettings() {
-		await this.saveData(this.settings)
-	}
+	// async saveSettings() {
+	// 	await this.saveData(this.settings)
+	// }
 }

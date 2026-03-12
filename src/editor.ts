@@ -1,5 +1,5 @@
 import { EditorView, ViewPlugin, ViewUpdate, PluginValue, DecorationSet, Decoration, PluginSpec } from "@codemirror/view";
-import { RangeSetBuilder, Text } from '@codemirror/state';
+import { RangeSetBuilder } from '@codemirror/state';
 import { syntaxTree } from "@codemirror/language";
 
 class EditorExtension implements PluginValue {
